@@ -28,7 +28,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-include(":sample:composeApp")
+include(":sample:androidApp")
 include(":libs:myaarname")
 include(":lib")
 
