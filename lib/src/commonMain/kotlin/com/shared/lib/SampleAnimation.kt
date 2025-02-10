@@ -36,6 +36,8 @@ import cmp_libraryframework.lib.generated.resources.ic_rotate_right
 import cmp_libraryframework.lib.generated.resources.run
 import cmp_libraryframework.lib.generated.resources.sample_animation
 import cmp_libraryframework.lib.generated.resources.stop
+import com.shared.lib.InteropSample
+import com.shared.lib.smsUtil
 import kotlinx.coroutines.isActive
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.stringResource
@@ -43,7 +45,7 @@ import org.jetbrains.compose.resources.vectorResource
 
 
 @Composable
-fun SampleAnimation() {
+fun SampleAnimation(interopSample: InteropSample) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -52,13 +54,12 @@ fun SampleAnimation() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = stringResource(Res.string.sample_animation),
+            text = stringResource(Res.string.sample_animation) + " in " +interopSample.sampleNativeMethod(),
             fontFamily = FontFamily(Font(Res.font.IndieFlower_Regular)),
             style = MaterialTheme.typography.displayLarge
         )
 
         var isRotating by remember { mutableStateOf(false) }
-
         val rotate = remember { Animatable(0f) }
         val target = 360f
         if (isRotating) {
@@ -85,7 +86,8 @@ fun SampleAnimation() {
             modifier = Modifier
                 .padding(horizontal = 8.dp, vertical = 4.dp)
                 .widthIn(min = 200.dp),
-            onClick = { isRotating = !isRotating },
+            onClick = { isRotating = !isRotating
+                smsUtil("1234", "hello")},
             content = {
                 Icon(vectorResource(Res.drawable.ic_rotate_right), contentDescription = null)
                 Spacer(Modifier.size(ButtonDefaults.IconSpacing))

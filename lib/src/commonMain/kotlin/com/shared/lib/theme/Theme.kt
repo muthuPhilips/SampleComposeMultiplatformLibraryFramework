@@ -1,4 +1,4 @@
-package com.philips.theme
+package com.shared.lib.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

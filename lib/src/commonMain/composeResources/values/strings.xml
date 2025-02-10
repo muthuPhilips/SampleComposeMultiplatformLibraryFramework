@@ -1,6 +1,5 @@
 <resources>
     <string name="sample_animation">Sample Animation</string>
-    <string name="open_github">Open github</string>
     <string name="run">Run</string>
     <string name="stop">Stop</string>
     <string name="theme">Theme</string>

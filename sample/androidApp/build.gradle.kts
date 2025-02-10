@@ -22,9 +22,10 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "ComposeApp"
+            baseName = "androidApp"
             isStatic = true
         }
+
     }
 
     sourceSets {
@@ -38,7 +39,7 @@ kotlin {
             implementation(project(":lib"))
 //            implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar"))))
 //            implementation(project.project(":libs:myaarname"))
-//            implementation(files("../libs/myaar/lib-debug.aar"))
+//            implementation(files("../libs/myaarname/lib-debug.aar"))
         }
 
         commonTest.dependencies {

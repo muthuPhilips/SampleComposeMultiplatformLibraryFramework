@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.compose)
     alias(libs.plugins.android.library)
+    alias(libs.plugins.swift.klib)
 }
 
 kotlin {
@@ -21,8 +22,15 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "ComposeApp"
+            baseName = "lib"
             isStatic = true
+        }
+        it.compilations {
+            val main by getting {
+                cinterops {
+                    create("sms")
+                }
+            }
         }
     }
 
@@ -50,7 +58,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.philips"
+    namespace = "com.shared"
     compileSdk = 35
 
     defaultConfig {
@@ -64,4 +72,11 @@ android {
 dependencies {
     androidTestImplementation(libs.androidx.uitest.junit4)
     debugImplementation(libs.androidx.uitest.testManifest)
+}
+
+swiftklib {
+    create("sms") {
+        path = file("../sample/iosApp/iosApp/sms")
+        packageName("com.shared.iosApp")
+    }
 }

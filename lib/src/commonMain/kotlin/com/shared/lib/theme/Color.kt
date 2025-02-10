@@ -1,4 +1,4 @@
-package com.philips.theme
+package com.shared.lib.theme
 
 import androidx.compose.ui.graphics.Color
 

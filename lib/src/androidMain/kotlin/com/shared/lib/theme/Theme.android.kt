@@ -1,4 +1,4 @@
-package com.philips.theme
+package com.shared.lib.theme
 
 import android.app.Activity
 import androidx.compose.runtime.Composable
