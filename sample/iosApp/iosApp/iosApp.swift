@@ -12,14 +12,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         if let window = window {
+        //uncomment below lines to inject the compose code in swiftUI
 //            window.rootViewController = MainKt.MainViewController(interopSample:InteropSampleImpl())
 //            window.makeKeyAndVisible()
-            window.rootViewController = ComposeEntryPointWithUiViewKt.ComposeEntryPointWithView(swiftUiView: { () -> UIView in SwiftUIInUIView(content: VStack {
+            var navController = UINavigationController()
+            let detailedViewController = ComposeEntryPointWithUiViewKt.ComposeEntryPointWithView(swiftUiView: { () -> UIView in SwiftUIInUIView(content: VStack {
+                Text("Detailed View")
+                Text("Detailed Screen Description")
+                Button("Sample Button"){}
+            }) })
+            let vc = ComposeEntryPointWithUiViewKt.ComposeEntryPointWithView(swiftUiView: { () -> UIView in SwiftUIInUIView(content: VStack {
                 Text("Hello from SwiftUI")
                 Image(systemName: "moon.stars")
                     .resizable()
                     .frame(width: 200, height: 200)
+                Button("open present") {
+                    self.presentVC(uiViewController: detailedViewController, navController: navController)
+                }
             }) })
+            navController.setViewControllers([vc], animated: true)
+        // Below lines to inject the swiftUI in compose
+            window.rootViewController = navController
+
             window.makeKeyAndVisible()
         }
         IosUtilsKt.callbackSwiftFunction = {
@@ -28,7 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func presentVC(uiViewController : UIViewController, navController : UINavigationController) {
+        navController.present(uiViewController, animated: true)
+    }
+    
 }
+
 
 class InteropSampleImpl : InteropSample {
     func sampleNativeMethod() -> String {

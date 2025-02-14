@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.compose)
     alias(libs.plugins.android.library)
     alias(libs.plugins.swift.klib)
+    alias(libs.plugins.spm)
 }
 
 kotlin {
@@ -78,5 +79,13 @@ swiftklib {
     create("sms") {
         path = file("../sample/iosApp/iosApp/sms")
         packageName("com.shared.iosApp")
+    }
+}
+
+multiplatformSwiftPackage {
+    packageName("TestLib")
+    swiftToolsVersion("5.3")
+    targetPlatforms {
+        iOS { v("13") }
     }
 }

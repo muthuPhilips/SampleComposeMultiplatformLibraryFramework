@@ -1,0 +1,8 @@
+framework module "lib" {
+    umbrella header "lib.h"
+
+    export *
+    module * { export * }
+
+    use Foundation
+}

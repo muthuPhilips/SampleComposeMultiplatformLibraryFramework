@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		009CDE962D5744C000F23A4A /* Greetings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009CDE952D5744C000F23A4A /* Greetings.swift */; };
 		00D942642D589243008FA523 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D942632D589239008FA523 /* TestingView.swift */; };
+		00E750942D5B7D5B00DF24F1 /* TestLib in Frameworks */ = {isa = PBXBuildFile; productRef = 00E750932D5B7D5B00DF24F1 /* TestLib */; };
 		A93A953B29CC810C00F8E227 /* iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A953A29CC810C00F8E227 /* iosApp.swift */; };
 		A93A953F29CC810D00F8E227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93A953E29CC810D00F8E227 /* Assets.xcassets */; };
 		A93A954229CC810D00F8E227 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93A954129CC810D00F8E227 /* Preview Assets.xcassets */; };
@@ -32,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00E750942D5B7D5B00DF24F1 /* TestLib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +133,9 @@
 				Base,
 			);
 			mainGroup = A93A952E29CC810C00F8E227;
+			packageReferences = (
+				00E750922D5B7D5B00DF24F1 /* XCLocalSwiftPackageReference "../../lib/swiftpackage" */,
+			);
 			productRefGroup = A93A953829CC810C00F8E227 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -381,6 +386,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		00E750922D5B7D5B00DF24F1 /* XCLocalSwiftPackageReference "../../lib/swiftpackage" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../lib/swiftpackage;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		00E750932D5B7D5B00DF24F1 /* TestLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TestLib;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A93A952F29CC810C00F8E227 /* Project object */;
 }

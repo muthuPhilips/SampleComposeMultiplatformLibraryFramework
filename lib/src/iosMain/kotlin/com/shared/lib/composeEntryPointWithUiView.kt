@@ -2,6 +2,7 @@ package com.shared.lib
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
@@ -14,9 +15,9 @@ import platform.UIKit.UIViewController
 fun ComposeEntryPointWithView(swiftUiView: () -> UIView) : UIViewController =
     ComposeUIViewController {
         Column (
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxSize()
         ){
-            Text("UI In compose")
+            Text("SwiftUI In compose")
 
             //this will render swift ui code
             UIKitView(
